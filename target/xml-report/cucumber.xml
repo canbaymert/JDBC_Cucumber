@@ -1,11 +1,87 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="2.457">
-    <testcase classname="US1002 Kullanici DB Utils ile database baglantisi yapabilir" name="TC02 Kullanici DB Utils ile database'deki bilgileri okur" time="2.192">
-        <system-out>
-            <![CDATA[Given kullanici DBUtils ile HMC veri tabanina baglanir......................passed
-And kullanici DBUtils ile  "tHOTELROOM" tablosundaki "Price" verilerini alir.passed
-And kullanici DBUtils ile  "Price" sutunundaki verileri okur................passed
-]]>
-        </system-out>
+<testsuite errors="0" failures="1" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="4" time="6.187">
+    <testcase classname="US1002 User connects to the database with DBUtils" name="TC02 User prints the data from the database with DBUtils" time="1.752">
+        <system-out><![CDATA[Given user connects to HMC database with DBUtils............................passed
+And user gets the data "Price" in the table "tHOTELROOM" with DBUtils.......passed
+And user prints the data on the column "Price" with DBUtils.................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="US1003 User should be able to test the given value" name="TC03 User tests the given value" time="1.493">
+        <system-out><![CDATA[Given user connects to HMC database with DBUtils............................passed
+And user gets the data "Price" in the table "tHOTELROOM" with DBUtils.......passed
+And user prints the data on the column "Price" with DBUtils.................passed
+Then user asserts that the 2 value of "Price" is 4000 with DBUtils..........passed
+]]></system-out>
+    </testcase>
+    <testcase classname="US1004 User should be able to print values of the the given column" name="TC04 User prints the given column" time="1.489">
+        <failure message="com.microsoft.sqlserver.jdbc.SQLServerException: The column name Email is not valid." type="java.lang.RuntimeException"><![CDATA[Given user connects to HMC database with DBUtils............................passed
+And user gets the data "Email" in the table "tHOTELROOM" with DBUtils.......passed
+And user prints the data on the column "Email" with DBUtils.................failed
+And user prints all "Email" values in order with DBUtils....................skipped
+
+StackTrace:
+java.lang.RuntimeException: com.microsoft.sqlserver.jdbc.SQLServerException: The column name Email is not valid.
+	at stepDefinitions.HMC_DBUtils_stepDefinitions.user_prints_the_data_on_the_column_with_DBUtils(HMC_DBUtils_stepDefinitions.java:34)
+	at ✽.user prints the data on the column "Email" with DBUtils(file:///C:/Users/Mert/IdeaProjects/JDBC_Cucumber/src/test/resources/features/US1004_List.feature:7)
+Caused by: com.microsoft.sqlserver.jdbc.SQLServerException: The column name Email is not valid.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDriverError(SQLServerException.java:234)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.findColumn(SQLServerResultSet.java:698)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.getString(SQLServerResultSet.java:2512)
+	at stepDefinitions.HMC_DBUtils_stepDefinitions.user_prints_the_data_on_the_column_with_DBUtils(HMC_DBUtils_stepDefinitions.java:32)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at io.cucumber.java.Invoker.doInvoke(Invoker.java:66)
+	at io.cucumber.java.Invoker.invoke(Invoker.java:24)
+	at io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47)
+	at io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29)
+	at io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66)
+	at io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:63)
+	at io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10)
+	at io.cucumber.core.runner.TestStep.executeStep(TestStep.java:86)
+	at io.cucumber.core.runner.TestStep.run(TestStep.java:57)
+	at io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51)
+	at io.cucumber.core.runner.TestCase.run(TestCase.java:95)
+	at io.cucumber.core.runner.Runner.runPickle(Runner.java:75)
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.lambda$run$0(PickleRunners.java:151)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$3(CucumberExecutionContext.java:151)
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:151)
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:148)
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:144)
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:28)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at io.cucumber.junit.FeatureRunner.run(FeatureRunner.java:137)
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:196)
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:89)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at io.cucumber.junit.Cucumber$RunBeforeAllHooks.evaluate(Cucumber.java:266)
+	at io.cucumber.junit.Cucumber$RunAfterAllHooks.evaluate(Cucumber.java:281)
+	at io.cucumber.junit.Cucumber$StartTestRun.evaluate(Cucumber.java:233)
+	at io.cucumber.junit.Cucumber$FinishTestRun.evaluate(Cucumber.java:248)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38)
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35)
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:235)
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:54)
+]]></failure>
+    </testcase>
+    <testcase classname="US1005 User should be able to update data on the database" name="TC05 User updates data" time="1.333">
+        <system-out><![CDATA[Given user connects to HMC database with DBUtils............................passed
+Then user replaces email data with the "usernew@gmail.com" of the record with ID 1017 on the table "tHOTEL".passed
+]]></system-out>
     </testcase>
 </testsuite>

@@ -1,8 +1,7 @@
-Feature: US1002 Kullanici DB Utils ile database baglantisi yapabilir
+Feature: US1002 User connects to the database with DBUtils
   @DBUtils
-  Scenario: TC02 Kullanici DB Utils ile database'deki bilgileri okur
+  Scenario: TC02 User prints the data from the database with DBUtils
 
-    Given kullanici DBUtils ile HMC veri tabanina baglanir
-    And kullanici DBUtils ile  "tHOTELROOM" tablosundaki "Price" verilerini alir
-    # SELECT Price FROM tHOTELROOM
-    And kullanici DBUtils ile  "Price" sutunundaki verileri okur
+    Given user connects to HMC database with DBUtils
+    And user gets the data "Price" in the table "tHOTELROOM" with DBUtils
+    And user prints the data on the column "Price" with DBUtils

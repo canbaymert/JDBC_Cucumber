@@ -1,10 +1,9 @@
-Feature: US1001 kullanici dogru bilgilerle database baglanabilmeli
+Feature: US1001 User should connect to the database with a correct login information
 
   @db
-  Scenario: TC01 Kullanici database'deki bilgileri okur
+  Scenario: TC01 User prints the data from the database
 
-    Given kullanici HMC veri tabanina baglanir
-    And kullanici "tHOTELROOM" tablosundaki "Price" verilerini alir
-    # SELECT Price FROM tHOTELROOM
-    And kullanici "Price" sutunundaki verileri okur
+    Given user connects to HMC database
+    And user gets the data "tHOTELROOM" in the table "Price"
+    And user prints the data on the column "Price"
 
