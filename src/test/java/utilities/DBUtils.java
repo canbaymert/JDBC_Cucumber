@@ -14,9 +14,9 @@ public class DBUtils {
     // createConnection is a reusable method to connect to the database
 
     public static void createConnection() {
-        String url="jdbc:sqlserver://184.168.194.58:1433;databaseName=hotelmycamp ; user=techproed;password=P2s@rt65";
-        String username="techproed";
-        String password="P2s@rt65";
+        String url="jdbc:sqlserver://184.168.194.58:1433;databaseName=hotelmycamp ; user=Enter your username here;password=Enter your password here";
+        String username="Enter your username here.";
+        String password="Enter your password here.";
         try {
             connection = DriverManager.getConnection(url, username, password);
         } catch (SQLException e) {
