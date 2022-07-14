@@ -70,11 +70,9 @@ public class HMC_DBUtils_stepDefinitions {
         }
     }
 
-    @Then("tHOTEL tablosunda IDHotel degeri {int} olan kaydin Email bilgisini {string} yapar")
-    public void thotelTablosundaIDHotelDegeriOlanKaydinEmailBilgisiniYapar(int idHotel, String yeniEmail) {
-
-        String updateQuery = "UPDATE tHOTEL SET Email = '" + yeniEmail + "' WHERE IDHotel=" + idHotel + ";";
+    @Then("user replaces email data with the {string} of the record with ID {int} on the table {string}")
+    public void user_replaces_email_data_with_the_of_the_record_with_ID_on_the_table (String newEmail, int ID, String table) {
+        String updateQuery = "UPDATE "+table+" SET Email = '" + newEmail + "' WHERE IDHotel=" + ID + ";";
         DBUtils.executeQuery(updateQuery);
-
     }
 }

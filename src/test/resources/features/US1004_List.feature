@@ -1,5 +1,5 @@
 Feature: US1004 User should be able to print values of the the given column
-
+  @DBUtils
   Scenario: TC04 User prints the given column
 
     Given user connects to HMC database with DBUtils

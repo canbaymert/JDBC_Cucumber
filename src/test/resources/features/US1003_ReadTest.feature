@@ -1,6 +1,5 @@
 Feature: US1003 User should be able to test the given value
-
-
+  @DBUtils
   Scenario: TC03 User tests the given value
 
     Given user connects to HMC database with DBUtils
