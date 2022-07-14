@@ -1,9 +1,9 @@
-Feature: US1003 Kullanici DBUtill ile istenen degeri test eder
+Feature: US1003 User should be able to test the given value
 
 
-  Scenario: TC03 Kullanici istenen degeri test edebilmeli
+  Scenario: TC03 User tests the given value
 
     Given user connects to HMC database with DBUtils
-    And kullanici DBUtils ile  "tHOTELROOM" tablosundaki "Price" verilerini alir
-    And kullanici DBUtils ile  "Price" sutunundaki verileri okur
-    Then DBUtill ile 2. "Price" in 4000 oldugunu test eder
+    And user gets the data "Price" in the table "tHOTELROOM" with DBUtils
+    And user prints the data on the column "Price" with DBUtils
+    Then user asserts that the 2 value of "Price" is 4000 with DBUtils

@@ -16,7 +16,7 @@ public class HMC_DBUtils_stepDefinitions {
     }
 
     @Given("user gets the data {string} in the table {string} with DBUtils")
-    public void user_gets_the_data_in_the_table_with_DBUtils(String table, String field) {
+    public void user_gets_the_data_in_the_table_with_DBUtils (String field, String table) {
         String query = "SELECT " + field + " FROM " + table;
         DBUtils.executeQuery(query);
     }
@@ -57,14 +57,17 @@ public class HMC_DBUtils_stepDefinitions {
         }
     }
 
-    @Then("DBUtill ile {int}. {string} in {int} oldugunu test eder")
-    public void dbutillIleInOldugunuTestEder(int istenenSiraNo, String field, int expectedDeger) throws SQLException {
-
-        DBUtils.getResultset().absolute(istenenSiraNo);
-        double actualDeger = DBUtils.getResultset().getDouble(field);
-        System.out.println("expected deger : " + expectedDeger);
-        System.out.println("actual deger : " + actualDeger);
-        Assert.assertTrue(actualDeger == expectedDeger);
+    @Then("user asserts that the {int} value of {string} is {int} with DBUtils")
+    public void user_asserts_that_the_value_of_is_with_DBUtils (int rowNumber, String field, int expectedValue) {
+        try {
+            DBUtils.getResultset().absolute(rowNumber);
+            double ActualValue = DBUtils.getResultset().getDouble(field);
+            System.out.println("Expected Value : " + expectedValue);
+            System.out.println("Actual Value : " + ActualValue);
+            Assert.assertTrue(ActualValue == expectedValue);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Then("tHOTEL tablosunda IDHotel degeri {int} olan kaydin Email bilgisini {string} yapar")
